@@ -28,3 +28,11 @@ Useful for:
 
 For production environments use ACME / cert-manager
 instead of self-signed certificates.
+
+## CI Integration
+
+GitLab CI pipeline automatically:
+
+- Validates certificate expiration
+- Regenerates certificate if invalid
+- Stores certificate as build artifact
