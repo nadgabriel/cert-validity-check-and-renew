@@ -1,0 +1,19 @@
+stages:
+  - validate
+
+validate_certificate:
+  stage: validate
+  image: alpine:latest
+
+  before_script:
+    - apk add --no-cache openssl bash
+
+  script:
+    - chmod +x scripts/check_and_fix_cert.sh
+    - ./scripts/check_and_fix_cert.sh
+
+  artifacts:
+    paths:
+      - certs/server.crt
+      - certs/server.key
+    expire_in: 1 week
